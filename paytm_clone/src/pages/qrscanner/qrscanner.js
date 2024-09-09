@@ -1,8 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
+import axios from 'axios';
 
 const QrCodeScanner = () => {
   const [scanResult, setScanResult] = useState('');
+  const [userData , setuserData] = useState({});
+
+
+  const getDataById = async (scanResult) => {
+        await axios.post('http://localhost:4001/users/getuserById' , { userId : scanResult })
+        .then((res) => {
+            setuserData(res.data);
+        })
+        .catch((err) => {
+            // console.log(err);
+        });
+    }
+
+    useEffect(()=>{
+        if(scanResult){
+            getDataById(scanResult);
+            window.location.href = `/send?userId=${scanResult}`;
+        }
+    } , [scanResult])
+
+    useEffect(()=>{
+
+    })
 
   useEffect(() => {
     const html5QrCodeScanner = new Html5QrcodeScanner(
@@ -27,13 +51,11 @@ const QrCodeScanner = () => {
 
     html5QrCodeScanner.render(onScanSuccess, onScanFailure);
 
-    // Clean up scanner on component unmount
     return () => {
       html5QrCodeScanner.clear();
     };
   }, []);
 
-  // Function to send scanned data to backend
   const sendToBackend = async (data) => {
     try {
       const response = await fetch('http://localhost:4001/qrcode/scanQr', {
@@ -45,7 +67,7 @@ const QrCodeScanner = () => {
       });
 
       const result = await response.json();
-      console.log(result.message);
+    //   console.log(result.message);
     } catch (error) {
       console.error('Error sending QR data to backend', error);
     }
