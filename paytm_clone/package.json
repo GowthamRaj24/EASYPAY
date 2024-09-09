@@ -14,10 +14,13 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
+    "html5-qrcode": "^2.3.8",
+    "qrcode-reader": "^1.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1",
     "react-scripts": "5.0.1",
+    "react-webcam": "^7.2.0",
     "styled-components": "^6.1.13",
     "web-vitals": "^2.1.4"
   },

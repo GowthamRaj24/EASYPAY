@@ -59,7 +59,7 @@ const SendMoneyPage = () => {
             <Heading>Send Money</Heading>
             <div className="send_money_img">
                 <div className="content_image">
-                    {myData.firstName}
+                    {myData && myData.firstName}
                 </div>
             </div>
             <SubHeading size="1.5">Sending Money to : {myData.firstName}</SubHeading>

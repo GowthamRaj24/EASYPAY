@@ -8,7 +8,7 @@ const sendOTP = async (req, res) => {
         const info = await transporter.sendMail({
             from: 'mgowthamraj9491@gmail.com',
             to: `${req.body.username}`, 
-            subject: "OTP for Verification - Paytm", 
+            subject: "OTP for Verification - EASY_PAY", 
             html: `<b>OTP : ${otp}</b>`
         });
         console.log("OTP Sent");
@@ -18,9 +18,9 @@ const sendOTP = async (req, res) => {
     catch(err){
         console.log(err);
         res.status(500).send("Can't Send OTP");
+        }
     }
-    
-    }
+
     catch(err){
         res.status(500).send("Error in sending the OTP " + err);
         return;

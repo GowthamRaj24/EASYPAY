@@ -13,7 +13,6 @@ const LoginPage = () => {
     const [password , setPassword] = useState("");
     const [username , setUsername] = useState("");
 
-
     const onLogin = () => {
         axios.post("http://localhost:4001/users/loginUser", { username: username, password: password })
             .then((res) => {
