@@ -13,7 +13,6 @@ const QrCodeScanner = () => {
             setuserData(res.data);
         })
         .catch((err) => {
-            // console.log(err);
         });
     }
 
@@ -67,7 +66,6 @@ const QrCodeScanner = () => {
       });
 
       const result = await response.json();
-    //   console.log(result.message);
     } catch (error) {
       console.error('Error sending QR data to backend', error);
     }

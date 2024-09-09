@@ -18,9 +18,9 @@ const sendOTP = async (req, res) => {
     catch(err){
         console.log(err);
         res.status(500).send("Can't Send OTP");
+        }
     }
-    
-    }
+
     catch(err){
         res.status(500).send("Error in sending the OTP " + err);
         return;
