@@ -9,7 +9,7 @@ import '@fontsource/roboto/900.css';
 import HomePage from "./pages/homePage/homePage";
 import SendMoneyPage from "./pages/sendMoney/sendMoneyPage";
 import Dashboard from "./pages/dashboard/dashboard";
-import Qrscanner from "./pages/qrscanner/qrscanner";
+import QRCodeScanner from "./pages/qrscanner/qrscanner";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="/home" element={<HomePage/>}/>
           <Route path="/send" element={<SendMoneyPage/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
-          <Route path="/qr" element={<Qrscanner/>}/>
+          <Route path="/qr" element={<QRCodeScanner/>}/>
         </Routes>
       </BrowserRouter>
     </>

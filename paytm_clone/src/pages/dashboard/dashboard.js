@@ -42,6 +42,7 @@ const Dashboard = () => {
         axios
             .post("http://localhost:4001/qrcode/generateQr", { userId: userId._id })
             .then(async (res) => {
+                console.log("Got the QR code");
                 setQrCode(res.data.qrCode);
             })
             .catch((err) => {
@@ -58,6 +59,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (userData._id) {
+            
             qrCode(userData);
         }
     }, [userData]);
@@ -78,6 +80,7 @@ const Dashboard = () => {
                         <SubHeading size="1.5">Welcome to PAY-NOW</SubHeading>
                         <SubHeading size="1.7">{userData?.firstName + " " + userData?.lastName}</SubHeading>
                         <SubHeading size="1.7">{userData?.username}</SubHeading>
+                        
                         {QrCode ? (
                             <img className="qrCodeImage" src={QrCode} alt="Profile" />
                         ) : (

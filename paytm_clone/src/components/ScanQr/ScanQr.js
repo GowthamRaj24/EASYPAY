@@ -1,46 +1,33 @@
-// // QRCodeScanner.js
-// import React, { useState } from 'react';
-// import { QrReader } from 'react-qr-reader';
+import React, { useState, useRef } from 'react';
+import axios from 'axios';
+import Webcam from 'react-webcam';
 
-// const QRCodeScanner = () => {
-//     const [scannedData, setScannedData] = useState(null); // Store the scanned data
+function QRCodeScanner() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const webcamRef = useRef(null);
 
-//     const handleScan = (result) => {
-//         if (result) {
-//             setScannedData(result); 
-//         }
-//     };
+  const handleScan = async () => {
+    try {
+      const imageSrc = webcamRef.current.getScreenshot();
+      const response = await axios.post('http://localhost:4001/qrcode/scanQr', { qrCodeImage: imageSrc });
+      setData(response.data.data);
+      setError(null);
+    } catch (error) {
+      console.error('Error scanning QR code:', error);
+      setError(error.message);
+    }
+  };
 
-//     const handleError = (error) => {
-//         console.error(error); 
-//     };
+  return (
+    <div>
+      <h1>QR Code Scanner</h1>
+      <Webcam audio={false} ref={webcamRef} />
+      <button onClick={handleScan}>Scan</button>
+      {data && <p>QR Code Data: {data}</p>}
+      {error && <p>Error: {error}</p>}
+    </div>
+  );
+}
 
-//     return (
-//         <div>
-//             <h2>QR Code Scanner</h2>
-            
-//             <QrReader
-//                 constraints={{ facingMode: 'environment' }} 
-//                 onResult={(result, error) => {
-//                     if (!!result) {
-//                         handleScan(result?.text);
-//                     }
-
-//                     if (!!error) {
-//                         handleError(error);
-//                     }
-//                 }}
-//                 style={{ width: '100%' }}
-//             />
-
-//             {scannedData && (
-//                 <div>
-//                     <h3>Scanned Data:</h3>
-//                     <p>{scannedData}</p>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// };
-
-// export default QRCodeScanner;
+export default QRCodeScanner;

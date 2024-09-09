@@ -7,6 +7,7 @@ const searchContact = async (req, res) => {
                 "$regex": filter
             }
         },
+
             {
             firstName: {
                 "$regex": filter
