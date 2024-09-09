@@ -1,9 +1,9 @@
-import QRCodeScanner from "../../components/ScanQr/ScanQr"
+// import QRCodeScanner from "../../components/ScanQr/ScanQr"
 
-const Qrscanner = () => {
-    return (<>
-    <QRCodeScanner/>
-    </>)
-}
+// const Qrscanner = () => {
+//     return (<>
+//     <QRCodeScanner/>
+//     </>)
+// }
 
-export default Qrscanner;
+// export default Qrscanner;
