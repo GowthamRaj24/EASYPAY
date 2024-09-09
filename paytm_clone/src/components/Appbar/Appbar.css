@@ -1,0 +1,35 @@
+.appbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.appbar_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+.appbar_logo{
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #000;
+}
+.appbar_profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 1rem;
+}
+.appbar_profile div{
+    margin-right: 2rem;
+}
+.appbar_profile img{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+}

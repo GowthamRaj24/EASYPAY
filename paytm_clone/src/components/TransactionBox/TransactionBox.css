@@ -1,0 +1,13 @@
+.transaction_box_container {
+    margin: 1rem;
+    width: 90%;
+}
+.greentransaction{
+    background-color: green;
+}
+.redtransaction{
+    background-color: rgb(241, 52, 52);
+}
+.t{
+    color: #ffffff;
+}
