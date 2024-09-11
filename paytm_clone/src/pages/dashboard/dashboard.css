@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: 50px;
-    padding: 20px; /* Add padding for spacing */
+    padding: 20px;
 }
 
 .dashboardContent {

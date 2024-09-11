@@ -23,7 +23,7 @@ const Dashboard = () => {
             console.log(error);
         }
     }
-    
+
     const fetchUserData = async () => {
         try {
             const x = localStorage.getItem("token");
