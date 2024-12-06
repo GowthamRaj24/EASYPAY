@@ -1,79 +1,216 @@
-/* homePage.css */
-
-.homePage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: hsl(0, 0%, 96%);
-    min-height: 100vh;
-    box-sizing: border-box;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.search {
-    width: 90vw;
-    max-width: 1200px;
-
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-.wallet_balance {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 150px;
+/* Hero Section */
+.hero {
+  width: 100%;
+  min-height: calc(100vh - 60px);; /* Adjust dynamically */
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 840px;
 }
 
-.wallet_balance h1 {
-    font-size: 24px;
-    margin-right: 10px;
+.hero-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.wallet_balance h2 {
-    font-size: 22px;
-    color: #333;
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
 }
 
-.contactsList {
-    display: flex;
-    flex-direction: column; /* Change flex direction to column */
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 90%;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-left: 50px;
+  margin-top: 260px;
 }
 
-.contactsList > * {
-    flex: none; 
-    width: 100%; 
+.hero-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: white;
+  margin-bottom: 20px;
 }
 
-/* Responsive Design */
+.join-button {
+  width: 80%;
+  max-width: 300px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+  background-color: #0056b3;
+}
+
+/* Info Section */
+.info-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.info-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #1a1a1a;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  padding: 20px;
+}
+
+.info-image {
+  width: 100%;
+  height: auto;
+}
+
+.info-card-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 15px 0;
+}
+
+.info-card-text {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #4a4a4a;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.info-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.info-button:hover {
+  background-color: #0056b3;
+}
+
+/* Terms Section */
+.terms-section {
+  padding: 30px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.terms-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+}
+.terms-box p{
+  color: #1a1a1a;
+}
+
+.learn-more-link {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.learn-more-link:hover {
+  color: #0056b3;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .homePage {
-        padding: 10px;
-    }
+  .hero-title {
+    font-size: 1.5rem;
+    
+  }
+  .hero-overlay{
+    margin-top: 260px;
 
-    .search {
-        margin-top: 50px;
-        margin-bottom: 15px;
-    }
+  }
+  .join-button {
+    font-size: 0.9rem;
+  }
+
+  .info-section {
+    padding: 30px 10px;
+  }
 }
 
 @media (max-width: 480px) {
-    .search {
-        max-width: 100%;
-    }
+  .hero {
+    min-height: 80vh; /* Adjust for smaller screens */
+  }
 
-    .contactsList {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .join-button {
+    font-size: 0.8rem;
+  }
+
+  .info-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .info-button {
+    font-size: 0.8rem;
+  }
+
+  .terms-section {
+    padding: 20px 10px;
+  }
 }

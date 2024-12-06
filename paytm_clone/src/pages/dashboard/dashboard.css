@@ -1,59 +1,501 @@
+/* General Dashboard Styles */
 .dashboardBackground {
-    background-color: #f5f5f5;
+    background-color: #000000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 180px;
+    background-color: #000000; /* Sidebar background color */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 100;
+    margin-top: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal center */
+}
+
+/* Sidebar Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff; /* Link color */
+    text-align: center;
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+.sidebar a:hover {
+    color: #8b8a8a; /* Optional: Change color on hover */
+}
+.sidebar a.active-link {
+    border-bottom: 2px solid #9e9393; /* Underline active link */
+    color: #ffffff; /* Highlight active link text */
+    font-weight: bold; /* Optionally make it bold */
+    padding-bottom: 5px; /* Add space between text and underline */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition */
+}
+
+
+/* App Bar Styles */
+.appBar {
+    position: fixed;
+    top: 0;
+    left: 180px;
+    right: 0;
+    height: 60px;
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 99;
+    border-bottom: 2px solid #b9b4b4;
+}
+
+/* Main Content Layout */
+.dashboardLayout {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between; /* Ensure space is distributed between content and contact section */
+    align-items: flex-start;
+    gap: 5px;
+    margin-left: 180px; /* Start after sidebar */
+    margin-top: 60px;  /* Start after app bar */
+    padding: 20px;
+    width: calc(100% - 180px); /* Take up remaining width */
+    height: calc(100vh - 60px); /* Take up remaining height */
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #000000; /* Ensure it looks clean */
+    position: relative;
+    z-index: 1;
+}
+
+/* Dashboard Content */
+.dashboardContent {
+    width: 70%; 
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #000000;
+    
+}
+
+.contactSection {
+    max-width: 100%; 
+    height: 100%; /* Ensures it spans the full height */
+    padding:0;
+    margin: 0;
+    text-align: left; 
+    overflow: auto;
+  
+}
+
+.contactsList {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;              
+    width: 100%;   
+    overflow: hidden;    
+}
+
+/* Contact Row (styled like transaction row) */
+.contactRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+    height: 30px;
+}
+
+.contactLogo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.contactDetails {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.contactName {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+.sendMoneyButton {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    margin-right: 0;
+}
+
+.sendMoneyButton:hover {
+    background-color: #555;
+}
+
+.sectionTitle {
+    margin-top: 0px; 
+    font-size: 24px;
+    color: white;
+    margin: 0;
+    text-align: left;
+}
+
+/* Search Bar Styles */
+
+.serviceSearchBarWrapper {
+    width: 550px;
+    margin-bottom: 20px; 
+    display: flex;
+}
+
+.serviceSearchBar {
     width: 100%;
+    border: none;
+    border-bottom: 2px solid #b9b4b4;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #000000;
+    color: white;
+    outline: none; 
+    margin-bottom: 0px;
+}
+/* Style the scrollbar for the services carousel */
+.servicesCarousel::-webkit-scrollbar {
+    width: 8px; /* Adjust the width of the scrollbar */
+    background-color: transparent; /* Make the scrollbar track (container) transparent */
+}
+
+/* Style the scrollbar thumb (the part that you drag) */
+.servicesCarousel::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent white scrollbar thumb */
+    border-radius: 10px; /* Rounded edges for the thumb */
+}
+
+/* Add hover effect to make the thumb more visible when hovered */
+.servicesCarousel::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* More visible when hovered */
+}
+.searchButton {
+    background-color: #444; /* Dark background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding for size */
+    margin-left: 10px; /* Space between input and button */
+
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+    width: 100px;
+  
+}
+.searchButton:hover {
+    background-color: #555; /* Lighter background on hover */
+}
+
+/* Hide scrollbar track for Firefox */
+.servicesCarousel {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Services Carousel Styles */
+.servicesCarouselContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    width: 100%;
+}
+.servicesCarousel {
+    display: flex;
+    overflow-x: auto;
+   
+}
+
+.servicesInner {
+    display: flex;
+}
+.billCard.electricity {
+    background-color: #e9ce64; /* Yellow for Electricity */
+}
+
+.billCard.water {
+    background-color: #82c3ee; /* Blue for Water */
+}
+
+.billCard.internet {
+    background-color: #87f3b4; /* Green for Internet */
+}
+
+.billCard.gas {
+    background-color: #fc8e81; /* Red for Gas */
+}
+.billCard {
+    width: 160px;
+    margin-right: 20px;
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.billCard h3, .billCard p {
+    margin: 0 0 10px;
+}
+.transactionsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+   
+}
+.transactionRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  
+    margin-bottom: 10px;
+    width: 620px;
+    height: 30px;
+}
+.transactionLogo {
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+.transactionLogo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.transactionDetails {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+/* Horizontal alignment within the details */
+.transactionTitle, .transactionAmount {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.transactionDate {
+    font-size: 14px;
+    color: #999;
+    text-align: right;
+    flex-shrink: 0;
+}
+.transactionsSection{
+    height: 100px;
+    margin-bottom: 0;
+}
+.filterSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    border-bottom: 2px solid #b9b4b4;
+    padding-bottom: 10px; /* Adds some space below the line */
+    margin-bottom: 20px;
+   
+.filterSelect{
+    background-color: #000000;
+}
+}
+.filterSection select {
+    border: none;
+    border-bottom: 2px solid #b9b4b4; /* Add a bottom border to create the horizontal line effect */
+    background-color: transparent;
+    color: rgb(248, 240, 240);
+    font-size: 16px;
+    padding: 5px;
+    outline: none;
+    margin-left: 5px;
+    margin-top: 20px;
+}
+
+.filterSection label {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+}
+   
+/* Vertical Line */
+.verticalSeparator {
+    height: 30px; /* Height of the separator */
+    width: 2px;
+    background-color: #b9b4b4; /* Color of the vertical line */
+    margin-right: 20px; /* Space between the line and the filter section */
+}
+
+.fullRightSection {
+    display: flex;
+    flex-direction: column; 
+    width: 40%; 
+    max-width: 600px;
+    padding: 20px;
+    margin-left: 0;
+    overflow: hidden;
+}
+.chartSection {
+    width: 100%;   /* Use full width of parent */
+    max-width: 100%; 
+    height: auto;  /* Allow height to adjust automatically */
+    margin: 20px 0; 
+    margin-top: 0;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.chartSection canvas {
+    width: 100%;   
+    height: auto; 
+    max-height: 250px;
+}
+.profileSection{
     display: flex;
     flex-direction: row;
+}
+.bankCardSection {
+    margin: 20px;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.bankCard {
+    display: flex;
     justify-content: space-between;
-    margin-top: 50px;
-    padding: 20px; /* Add padding for spacing */
-}
-
-.dashboardContent {
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
     align-items: center;
-    width: 30vw;
-    margin-top: 20px;
-    height: 70vh;
-}
-
-.transactionHistory {
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-start; 
-    /* align-items: center; */
-    /* margin-top: 1cap; */
-    overflow-y: auto; 
-    width: 40vw; 
-    height: 70vh;
+    width: 100%;
+    max-width: 350px;
     padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #e0e5ec, #ffffff);
+    color: #333;
 }
 
-.dashboardHeading {
-    margin-bottom: 20px;
-}
-
-.qrCodeImage {
-    width: 200px;
-    height: 200px;
-    margin-top: 20px;
-}
-
-.qrCodePlaceholder {
-    width: 200px;
-    height: 200px;
-    margin-top: 20px;
-    background-color: #ccc;
+.cardInfo {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-weight: bold;
+    flex-direction: column;
+}
+
+.cardNumber {
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.cardHolder, .cardExpiry {
+    font-size: 0.9rem;
     color: #555;
 }
 
-@media screen and (max-width: 1000px) {
-
-
+.cardHolder span, .cardExpiry span {
+    font-weight: 600;
 }
+
+.cardLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoImage {
+    width: 50px;
+    height: auto;
+    opacity: 0.8;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .burgerMenu {
+      display: block;
+    }
+  
+    .sidebar {
+      position: fixed;
+      height: 100%;
+      left: -200px; /* Hide off-screen */
+      width: 200px;
+    }
+  
+    .sidebar.open {
+      left: 0;
+    }
+  
+    .dashboardLayout {
+      margin-left: 0;
+      margin-top: 60px;
+      width: 100%;
+      flex-direction: column;
+    }
+  
+    .dashboardContent,
+    .fullRightSection {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar ul {
+      padding: 10px;
+    }
+  
+    .sidebar a {
+      font-size: 14px;
+    }
+  
+    .burgerMenu {
+      font-size: 20px;
+    }
+  }

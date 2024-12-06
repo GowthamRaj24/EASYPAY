@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState, useEffect } from "react";
 import Heading from "../../components/Heading/Heading";
 import Input from "../../components/Input/Input";
 import SubHeading from "../../components/SubHeading/SubHeading";
@@ -67,26 +67,62 @@ const SignupPage = () => {
             })
         }
 
-    return(<>
-    <div className="loginBackground">
-        <Wrapper>
-            <Heading>{(curr === 0) ? (<>Signup Page</>) : (<>Enter OTP</>)}</Heading>
-            <SubHeading size="1.5">Welcome to the PAY-NOW</SubHeading>
-            {(curr === 0)?(<>
-                <Input type="text" placeholder="Enter FirstName"  setInput={setFirstname} input={firstname} inputHeading="First Name" className="inputemail"></Input>
-                <Input type="text" placeholder="Enter LastName"  setInput={setLastname} input={lastname} inputHeading="Last Name" className="inputemail"></Input>
-                <Input type="text" placeholder="Enter Username"  setInput={setUsername} input={username} inputHeading="Username" className="inputemail"></Input>
-                <Password inputHeading="Password" password={password} setPassword={setPassword}/>
-                {(loadButton) ? (<ButtonUse onClick={()=>onSignup()}>Sign Up</ButtonUse>) : (<LoadingButton><CircularProgress />Loading</LoadingButton>)}
-                <SubHeading size="1.2">Already a User ? <Link link="/login">Login</Link></SubHeading>
-                </>):
-            (<>
-            <Input type="text" placeholder="Enter OTP"  setInput={setUserOTP} input={userOTP} inputHeading="OTP" className="inputemail"></Input>
-            <ButtonUse onClick = {()=>checkOTP()}>Verify OTP</ButtonUse>
-            </>)}
-        </Wrapper>
-    </div>
-    </>)
+    // Function to create animated circles (copied from HomePage.js)
+    useEffect(() => {
+        const createCircles = () => {
+            const circleContainer = document.querySelector('.circle-background');
+            for (let i = 0; i < 20; i++) { // Adjust the number of circles as needed
+                const circle = document.createElement('div');
+                circle.classList.add('circle');
+                
+                // Random size, position, and animation duration for each circle
+                const size = Math.random() * 100 + 50; // Random size between 50px and 150px
+                const posX = Math.random() * window.innerWidth;
+                const posY = Math.random() * window.innerHeight;
+                const duration = Math.random() * 20 + 20; // Animation duration between 20s and 40s
+
+                // Set styles for each circle
+                circle.style.width = `${size}px`;
+                circle.style.height = `${size}px`;
+                circle.style.left = `${posX}px`;
+                circle.style.top = `${posY}px`;
+                circle.style.animationDuration = `${duration}s`;
+
+                // Append the circle to the container
+                circleContainer.appendChild(circle);
+            }
+        };
+
+        createCircles(); // Call the function once when the component mounts
+    }, []);
+
+    return(
+        <>
+            <div className="circle-background"></div> {/* Container for the animated circles */}
+            
+            <div className="loginBackground">
+                <Wrapper>
+                    <Heading>{(curr === 0) ? (<>Signup Page</>) : (<>Enter OTP</>)}</Heading>
+                    <SubHeading size="1.5">Welcome to the PAY-NOW</SubHeading>
+                    {(curr === 0)?(
+                        <>
+                            <Input type="text" placeholder="Enter FirstName"  setInput={setFirstname} input={firstname} inputHeading="First Name" className="inputemail"></Input>
+                            <Input type="text" placeholder="Enter LastName"  setInput={setLastname} input={lastname} inputHeading="Last Name" className="inputemail"></Input>
+                            <Input type="text" placeholder="Enter Username"  setInput={setUsername} input={username} inputHeading="Username" className="inputemail"></Input>
+                            <Password inputHeading="Password" password={password} setPassword={setPassword}/>
+                            {(loadButton) ? (<ButtonUse onClick={()=>onSignup()}>Sign Up</ButtonUse>) : (<LoadingButton><CircularProgress />Loading</LoadingButton>)}
+                            <SubHeading size="1.2">Already a User ? <Link link="/login">Login</Link></SubHeading>
+                        </>
+                    ):(
+                        <>
+                            <Input type="text" placeholder="Enter OTP"  setInput={setUserOTP} input={userOTP} inputHeading="OTP" className="inputemail"></Input>
+                            <ButtonUse onClick = {()=>checkOTP()}>Verify OTP</ButtonUse>
+                        </>
+                    )}
+                </Wrapper>
+            </div>
+        </>
+    )
 }
 
 export default SignupPage;

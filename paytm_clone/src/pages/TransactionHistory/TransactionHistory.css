@@ -1,0 +1,141 @@
+/* TransactionHistory.css */
+body {
+  background-color: #000000;  /* Black background for the body */
+  margin: 0;               /* Ensure no extra spacing around */
+}
+
+.transaction-history-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .transaction-history-container h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    
+  }
+  
+  .transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+  }
+  
+  .transaction-table th,
+  .transaction-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .transaction-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .transaction-table td.negative {
+    color: #e74c3c; /* Red color for negative amounts */
+  }
+  
+  .transaction-table td.positive {
+    color: #2ecc71; /* Green color for positive amounts */
+  }
+  .transaction-content{
+    margin-left: -70px;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .button-group button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .button-group button:hover {
+    background-color: #0056b3;
+  }
+  
+  .button-group button:focus {
+    outline: none;
+    background-color: #004494;
+  }
+  
+/* TransactionHistory.css */
+
+.transaction-history-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #000000;
+    padding: 15px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 10px 0;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .sidebar a:hover {
+    color: #ffffff; /* Change color on hover */
+}
+
+  .sidebar a.active-link {
+    border-bottom: 2px solid #9e9393; /* Underline active link */
+    color: #ffffff; /* Highlight active link text */
+    font-weight: bold; /* Optionally make it bold */
+    padding-bottom: 5px; /* Add space between text and underline */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition */
+}
+    /* TransactionHistory.css */
+.balance-over-time {
+    margin-top: 60px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 900px;
+  }
+  
+  .balance-over-time h2 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  #timeRangeSelect {
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 1em;
+  }
+  .walletBalance {
+  margin-top: 200px;
+  text-align: center;
+  color: #ffffff; /* White text color */
+  font-size: 16px;
+}
+
+.walletBalance p {
+  margin: 5px 0;
+}
