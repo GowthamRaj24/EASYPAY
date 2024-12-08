@@ -51,7 +51,7 @@ const SendMoneyPage = () => {
             console.log(err);
         });
     };
-    
+
     return (
     <div className="loginBackground">
         {myData ?
